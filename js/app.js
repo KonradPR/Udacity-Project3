@@ -1,7 +1,29 @@
 /*
  * Create a list that holds all of your cards
  */
+ /*Creating cards and storing them in an array*/
+ /*Creating cards and storing them in an array*/
+  const icons = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube",
+                 "fa-leaf","fa-bicycle","fa-bomb","fa-diamond",
+                 "fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube",
+                 "fa-leaf","fa-bicycle","fa-bomb"]
 
+ let cards = (function(){
+   let arr = [];
+   let card,back,front;
+   for(let i = 0; i<16; i++){
+     card = document.createElement("li");
+     card.className = "card";
+     front = document.createElement("i");
+     front.className = `card-front fa ${icons[i]}`;
+     back = document.createElement("div");
+     back.className = "card-back";
+     card.appendChild(front);
+     card.appendChild(back);
+     arr[i] = card;
+   }
+   return arr;
+ })();
 
 /*
  * Display the cards on the page
