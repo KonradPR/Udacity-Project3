@@ -31,7 +31,19 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ /*Fucntion shuffling the cards and adding them to page
+  while removing any previous cards*/
+  const reset = function() {
+    cards = shuffle(cards);
+    const deck = document.querySelector(".deck");
+    deck.innerHTML = "";
+    for(let i = 0; i<16; i++){
+      deck.appendChild(cards[i]);
+    }
 
+  };
+
+  reset();
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
