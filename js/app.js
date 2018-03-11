@@ -11,6 +11,7 @@
  let cards = (function(){
    let arr = [];
    let card,back,front;
+
    for(let i = 0; i<16; i++){
      card = document.createElement("li");
      card.className = "card";
@@ -33,12 +34,12 @@
  */
  /*Fucntion shuffling the cards and adding them to page
   while removing any previous cards*/
-  const reset = function() {
+const reset = function() {
     cards = shuffle(cards);
     const deck = document.querySelector(".deck");
     deck.innerHTML = "";
     for(let i = 0; i<16; i++){
-      deck.appendChild(cards[i]);
+    deck.appendChild(cards[i]);
     }
 
   };
@@ -70,3 +71,36 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ /*Event listener for cards*/
+ const deck = document.querySelector(".deck");
+ const matchedCards = [];
+ const openedCards = [];
+
+ deck.addEventListener("click", function(e){
+   let card = e.target;
+
+   if(canOpen(card,openedCards,matchedCards)) {
+     open(card,openedCards);
+     moveCount();
+
+     if(openedCards.length===2) {
+       if(matched(openedCards)) {
+         match(openedCards,matchedCards);
+       } else {
+         close(openedCards);
+       }
+     }
+   }
+ });
+
+
+
+ /*Function for opening a card*/
+
+/*Function for closing a card*/
+
+
+/*Function checking if a card can be opened*/
+
+/*function checking if opened card matches others*/

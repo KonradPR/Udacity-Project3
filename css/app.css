@@ -82,6 +82,8 @@ h1 {
     background-color:blue;
     transform: rotateY(180deg);
     z-index:2;
+    font-size: 30px;
+    color: azure;
 
 }
 
@@ -91,7 +93,7 @@ h1 {
     background: #2e3d49
 }
 
-.flipped {
+.open {
   transform: rotate(180deg);
 
 }
