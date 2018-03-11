@@ -82,13 +82,13 @@ function shuffle(array) {
 
    if(canOpen(card,openedCards,matchedCards)) {
      open(card,openedCards);
-     moveCount();
+     //moveCount();
 
      if(openedCards.length===2) {
        if(matched(openedCards)) {
          match(openedCards,matchedCards);
        } else {
-         close(openedCards);
+      setTimeout(function(){close(openedCards)},1000,);
        }
      }
    }
@@ -97,10 +97,42 @@ function shuffle(array) {
 
 
  /*Function for opening a card*/
-
+const open = function(card,openedCards) {
+  card.parentElement.classList.add("open");
+  openedCards.push(card);
+};
 /*Function for closing a card*/
-
+const close = function(openedCards) {
+  while(openedCards.length) {
+    let element = openedCards.pop();
+    element.parentElement.classList.remove("open");
+  }
+};
 
 /*Function checking if a card can be opened*/
-
+const canOpen = function(card, matchedCards,openedCards) {
+  if(matchedCards.includes(card)) {
+    return false;
+  } else if(openedCards.includes()) {
+    return false;
+  } else {
+    return true;
+  }
+};
 /*function checking if opened card matches others*/
+const matched = function(openedCards) {
+  if(openedCards[0].previousSibling.className===openedCards[1].previousSibling.className) {
+    return true;
+  }
+  return false;
+
+};
+
+/*Function moving cards form opened to matched*/
+const match = function(openedCards,matchedCards) {
+      while(openedCards.length) {
+        let element = openedCards.pop();
+        element.previousSibling.classList.add("matched");
+        matchedCards.push(element);
+      }
+};
