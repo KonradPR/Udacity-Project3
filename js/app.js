@@ -111,7 +111,9 @@ const close = function(openedCards) {
 
 /*Function checking if a card can be opened*/
 const canOpen = function(card, matchedCards,openedCards) {
-  if(matchedCards.includes(card)) {
+  if(card.nodeName!=="DIV"){
+    return false;
+  } else if(matchedCards.includes(card)) {
     return false;
   } else if(openedCards.includes()) {
     return false;
