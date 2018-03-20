@@ -86,7 +86,7 @@ function shuffle(array) {
      if(openedCards.length===2) {
        moveCount();
        if(matched(openedCards)) {
-         match(openedCards,matchedCards);
+        setTimeout(function(){match(openedCards,matchedCards)},1000);
        } else {
       setTimeout(function(){close(openedCards)},1000,);
        }
