@@ -84,7 +84,9 @@ h1 {
     z-index:2;
     font-size: 30px;
     color: azure;
-
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
 }
 
 .deck .card .card-back {
@@ -98,6 +100,7 @@ h1 {
 
 .deck .card .card-front.matched {
   background-color: #01FF70;
+  cursor: default;
 }
 
 
