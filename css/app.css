@@ -79,7 +79,7 @@ h1 {
 }
 
 .deck .card .card-front {
-    background-color:blue;
+    background-color:#0074D9;
     transform: rotateY(180deg);
     z-index:2;
     font-size: 30px;
@@ -88,14 +88,16 @@ h1 {
 }
 
 .deck .card .card-back {
-    background-color:green;
     transform: rotateY(0deg);
     background: #2e3d49
 }
 
 .open {
   transform: rotateY(180deg);
+}
 
+.deck .card .card-front.matched {
+  background-color: #01FF70;
 }
 
 
