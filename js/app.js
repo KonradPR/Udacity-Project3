@@ -82,9 +82,9 @@ function shuffle(array) {
 
    if(canOpen(card,openedCards,matchedCards)) {
      open(card,openedCards);
-     //moveCount();
 
      if(openedCards.length===2) {
+       moveCount();
        if(matched(openedCards)) {
          match(openedCards,matchedCards);
        } else {
@@ -138,3 +138,20 @@ const match = function(openedCards,matchedCards) {
         matchedCards.push(element);
       }
 };
+
+/*Fucntion used for managing moves counter and scores*/
+const moveCount = function() {
+  /*Updating moves counter on Score Panel*/
+  let scorePanel_counter = document.querySelector(".score-panel").childNodes[3];
+  scorePanel_counter.textContent = Number(scorePanel_counter.textContent)+1;
+/*Updating star icons on Score Panel*/
+  let scorePanel_stars = document.querySelector(".score-panel").childNodes[1];
+  console.log(scorePanel_stars.childNodes[5].firstElementChild.className)
+  if(Number(scorePanel_counter.textContent)===15){
+      scorePanel_stars.childNodes[5].firstElementChild.className = "fa  fa-star-o";
+  } else if(Number(scorePanel_counter.textContent)===25){
+    scorePanel_stars.childNodes[3].firstElementChild.className = "fa  fa-star-o";
+  } else if(Number(scorePanel_counter.textContent)===35){
+    scorePanel_stars.childNodes[1].firstElementChild.className = "fa  fa-star-o";
+  }
+}
