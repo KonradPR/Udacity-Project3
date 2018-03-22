@@ -48,7 +48,9 @@ const reset = function() {
       openedCards.pop();
     }
     while(matchedCards.length) {
-      matchedCards.pop();
+    let element = matchedCards.pop();
+    element.previousSibling.classList.remove("matched");
+    element.parentElement.classList.remove("open");
     }
     document.querySelector(".score-panel").childNodes[3].textContent = 0;
 
