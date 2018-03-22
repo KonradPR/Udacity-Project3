@@ -170,3 +170,9 @@ const moveCount = function() {
     scorePanel_stars.childNodes[1].firstElementChild.className = "fa  fa-star-o";
   }
 }
+
+const restartButton = document.querySelector(".restart");
+
+restartButton.addEventListener("click", function(e){
+  reset();
+});
