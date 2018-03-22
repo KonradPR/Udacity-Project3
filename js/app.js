@@ -6,7 +6,10 @@
   const icons = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube",
                  "fa-leaf","fa-bicycle","fa-bomb","fa-diamond",
                  "fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube",
-                 "fa-leaf","fa-bicycle","fa-bomb"]
+                 "fa-leaf","fa-bicycle","fa-bomb"];
+  const deck = document.querySelector(".deck");
+  const matchedCards = [];
+  const openedCards = [];
 
  let cards = (function(){
    let arr = [];
@@ -38,10 +41,22 @@ const reset = function() {
     cards = shuffle(cards);
     const deck = document.querySelector(".deck");
     deck.innerHTML = "";
-    for(let i = 0; i<16; i++){
+    for(let i = 0; i<16; i++) {
     deck.appendChild(cards[i]);
     }
+    while(openedCards.length) {
+      openedCards.pop();
+    }
+    while(matchedCards.length) {
+      matchedCards.pop();
+    }
+    document.querySelector(".score-panel").childNodes[3].textContent = 0;
 
+    let scorePanel_stars = document.querySelector(".score-panel").childNodes[1];
+
+    for(let i = 1; i <= 5; i+=2) {
+      scorePanel_stars.childNodes[i].firstElementChild.className = "fa fa-star";
+    }
   };
 
   reset();
@@ -73,9 +88,7 @@ function shuffle(array) {
  */
 
  /*Event listener for cards*/
- const deck = document.querySelector(".deck");
- const matchedCards = [];
- const openedCards = [];
+
 
  deck.addEventListener("click", function(e){
    let card = e.target;
@@ -149,7 +162,6 @@ const moveCount = function() {
   scorePanel_counter.textContent = Number(scorePanel_counter.textContent)+1;
 /*Updating star icons on Score Panel*/
   let scorePanel_stars = document.querySelector(".score-panel").childNodes[1];
-  console.log(scorePanel_stars.childNodes[5].firstElementChild.className)
   if(Number(scorePanel_counter.textContent)===15){
       scorePanel_stars.childNodes[5].firstElementChild.className = "fa  fa-star-o";
   } else if(Number(scorePanel_counter.textContent)===25){
