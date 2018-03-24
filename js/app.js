@@ -59,6 +59,8 @@ const reset = function() {
     for(let i = 1; i <= 5; i+=2) {
       scorePanel_stars.childNodes[i].firstElementChild.className = "fa fa-star";
     }
+    const modal = document.querySelector(".modal");
+    modal.classList.remove("visible");
   };
 
   reset();
