@@ -99,10 +99,15 @@ h1 {
 }
 
 .deck .card .card-front.matched {
-  background-color: #01FF70;
+  animation: matchColor 1s 1;
+  animation-fill-mode: forwards;
   cursor: default;
 }
 
+@keyframes matchColor {
+  form{background-color:#0074D9;}
+  to {background-color: #01FF70;}
+}
 
 /*
  * Styles for the Score Panel
