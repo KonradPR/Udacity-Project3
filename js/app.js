@@ -107,6 +107,10 @@ function shuffle(array) {
        }
      }
    }
+  setTimeout( function()
+  {if(matchedCards.length===16) {
+     showModal();}
+   },1500);
  });
 
 
@@ -173,8 +177,23 @@ const moveCount = function() {
   }
 }
 
-const restartButton = document.querySelector(".restart");
+/*Function showing win modal*/
+const showModal = function() {
+  const modal = document.querySelector(".modal");
+  const scorePanel_stars = document.querySelector(".score-panel .stars");
+  const modal_rating = document.querySelector(".modal-content-rating-vaule");
+  modal_rating.innerHTML = scorePanel_stars.innerHTML;
+  modal.classList.add("visible");
+};
 
-restartButton.addEventListener("click", function(e){
-  reset();
-});
+/*Event Listener for the restart button*/
+(function() {
+    const restartButton = document.querySelector(".restart");
+    restartButton.addEventListener("click", function(e){reset();});
+})();
+
+/*Event Listner for modal play again button*/
+(function() {
+    const modalButton = document.querySelector(".modal-content-button");
+    modalButton.addEventListener("click",function(e){reset();});
+})();

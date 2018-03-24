@@ -130,3 +130,51 @@ h1 {
     float: right;
     cursor: pointer;
 }
+/*Styles for win modal*/
+.modal {
+  width: 660px;
+  min-height: 740px;
+  background-color: rgba(0,0,0,0.4);
+  position: absolute;
+  top: 80px;
+  visibility: hidden;
+  border-radius: 5%;
+}
+
+.modal.visible {
+  visibility: visible;
+}
+
+.modal-content {
+   margin: 20% auto;
+   background: #ffffff url('../img/geometry2.png');;
+   min-height: 280px;
+   max-width: 520px;
+   text-align: center;
+   border-radius: 5%;
+}
+
+.modal-content-title {
+  font-size: 2.0rem;
+}
+
+.modal-content-rating {
+  font-size: 1.5rem;
+}
+
+.modal-content-rating-vaule {
+  list-style: none;
+  display: inline;
+}
+
+.modal-content-rating-vaule li {
+  display: inline;
+}
+
+.modal-content-button {
+  font-size: 1.4rem;
+  border-radius: 15%;
+  border: #000 1px solid;
+  cursor: pointer;
+  background: #ffffff url('../img/geometry2.png');
+}
