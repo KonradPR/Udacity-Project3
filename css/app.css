@@ -1,36 +1,34 @@
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+  background: #ffffff url('../img/geometry2.png');
+  /* Background pattern from Subtle Patterns */
+  font-family: 'Coda', cursive;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 /*
@@ -38,61 +36,62 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+  width: 660px;
+  min-height: 680px;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    font-size: 0;
-    color: #ffffff;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-    perspective: 100;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: .8s;
-    border-radius: 8px;
+  height: 125px;
+  width: 125px;
+  font-size: 0;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  perspective: 100;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: .8s;
+  border-radius: 8px;
 }
+
 /*Styles used for card flipping*/
-.deck .card .card-front,
-.deck .card .card-back {
-      height:125px;
-      width:125px;
-      backface-visibility: hidden;
-      position:absolute;
-      top:0;
-      right:0;
-      border-radius: 8px;
+
+.deck .card .card-front, .deck .card .card-back {
+  height: 125px;
+  width: 125px;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 8px;
 }
 
 .deck .card .card-front {
-    background-color:#0074D9;
-    transform: rotateY(180deg);
-    z-index:2;
-    font-size: 30px;
-    color: azure;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 90px;
+  background-color: #0074D9;
+  transform: rotateY(180deg);
+  z-index: 2;
+  font-size: 30px;
+  color: azure;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 90px;
 }
 
 .deck .card .card-back {
-    transform: rotateY(0deg);
-    background: #2e3d49
+  transform: rotateY(0deg);
+  background: #2e3d49
 }
 
 .open {
@@ -106,8 +105,12 @@ h1 {
 }
 
 @keyframes matchColor {
-  form{background-color:#0074D9;}
-  to {background-color: #01FF70;}
+  form {
+    background-color: #0074D9;
+  }
+  to {
+    background-color: #01FF70;
+  }
 }
 
 /*
@@ -115,32 +118,34 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+  text-align: left;
+  width: 345px;
+  margin-bottom: 10px;
 }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
+  list-style: none;
+  display: inline-block;
 }
 
 .score-panel .restart {
-    float: right;
-    cursor: pointer;
+  float: right;
+  cursor: pointer;
 }
+
 /*Styles for win modal*/
+
 .modal {
   width: 660px;
   min-height: 740px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 80px;
   visibility: hidden;
@@ -152,12 +157,13 @@ h1 {
 }
 
 .modal-content {
-   margin: 20% auto;
-   background: #ffffff url('../img/geometry2.png');;
-   min-height: 280px;
-   max-width: 520px;
-   text-align: center;
-   border-radius: 5%;
+  margin: 20% auto;
+  background: #ffffff url('../img/geometry2.png');
+  ;
+  min-height: 280px;
+  max-width: 520px;
+  text-align: center;
+  border-radius: 5%;
 }
 
 .modal-content-title {
