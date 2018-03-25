@@ -140,6 +140,11 @@ h1 {
   cursor: pointer;
 }
 
+.timer-display {
+  display: inline;
+  margin-left: 20%;
+}
+
 /*Styles for win modal*/
 
 .modal {

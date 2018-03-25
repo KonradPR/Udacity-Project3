@@ -30,6 +30,30 @@ let cards = (function() {
   return arr;
 })();
 
+/*Object used for handling timer*/
+const timer = {
+   timePassed : 0,
+   countStart : Date.now(),
+   display : document.querySelector(".timer-display-value"),
+   updateTimer : function() {
+     let delta = Date.now() - this.countStart;
+     this.timePassed = Math.floor(delta / 1000);
+     this.display.textContent = this.timePassed;
+   },
+   startTiming : function() {
+       this.interval = setInterval(() => {
+          this.updateTimer();
+       }, 500);
+     },
+   start : function() {
+     this.countStart = Date.now();
+     this.startTiming();
+   },
+   stop : function() {
+     clearInterval(this.interval);
+   }
+};
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -45,7 +69,8 @@ const reset = function() {
     deck.appendChild(cards[i]);
   }
   while (openedCards.length) {
-    openedCards.pop();
+    let element = openedCards.pop();
+    element.parentElement.classList.remove("open");
   }
   while (matchedCards.length) {
     let element = matchedCards.pop();
@@ -61,6 +86,7 @@ const reset = function() {
   }
   const modal = document.querySelector(".modal");
   modal.classList.remove("visible");
+  timer.start();
 };
 
 reset();
@@ -189,7 +215,10 @@ const showModal = function() {
   const modal = document.querySelector(".modal");
   const scorePanel_stars = document.querySelector(".score-panel .stars");
   const modal_rating = document.querySelector(".modal-content-rating-vaule");
+  const modal_time = document.querySelector(".modal-content-time-value");
   modal_rating.innerHTML = scorePanel_stars.innerHTML;
+  timer.stop();
+  modal_time.textContent = timer.timePassed;
   modal.classList.add("visible");
 };
 
