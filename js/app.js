@@ -12,6 +12,7 @@ const deck = document.querySelector(".deck");
 const matchedCards = [];
 const openedCards = [];
 
+
 let cards = (function() {
   let arr = [];
   let card, back, front;
@@ -35,6 +36,7 @@ const timer = {
    timePassed : 0,
    countStart : Date.now(),
    display : document.querySelector(".timer-display-value"),
+   started : false,
    updateTimer : function() {
      let delta = Date.now() - this.countStart;
      this.timePassed = Math.floor(delta / 1000);
@@ -46,6 +48,7 @@ const timer = {
        }, 500);
      },
    start : function() {
+     this.started = true;
      this.countStart = Date.now();
      this.startTiming();
    },
@@ -81,12 +84,14 @@ const reset = function() {
 
   let scorePanel_stars = document.querySelector(".score-panel").childNodes[1];
 
-  for (let i = 1; i <= 5; i += 2) {
+  for (let i = 1; i <= 3; i += 2) {
     scorePanel_stars.childNodes[i].firstElementChild.className = "fa fa-star";
   }
   const modal = document.querySelector(".modal");
   modal.classList.remove("visible");
-  timer.start();
+  timer.started = false;
+  timer.stop();
+  timer.display.textContent = 0;
 };
 
 reset();
@@ -125,6 +130,9 @@ deck.addEventListener("click", function(e) {
   let card = e.target;
 
   if (canOpen(card, openedCards, matchedCards)) {
+    if(!timer.started) {
+      timer.start();
+    }
     open(card, openedCards);
 
     if (openedCards.length === 2) {
@@ -205,8 +213,6 @@ const moveCount = function() {
     scorePanel_stars.childNodes[5].firstElementChild.className = "fa  fa-star-o";
   } else if (Number(scorePanel_counter.textContent) === 25) {
     scorePanel_stars.childNodes[3].firstElementChild.className = "fa  fa-star-o";
-  } else if (Number(scorePanel_counter.textContent) === 35) {
-    scorePanel_stars.childNodes[1].firstElementChild.className = "fa  fa-star-o";
   }
 }
 

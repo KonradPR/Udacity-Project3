@@ -8,6 +8,7 @@
 * [Reset function](#reset-function)
 * [Main event listener](#main-event-listener)
 * [Minor functions](#minor-functions)
+* [Dependencies](#dependencies)
 * [Contributing](#contributing)
 
 ## Introduction
@@ -60,7 +61,13 @@ There are following minor functions that are being called by other functions:
 - matched(openedCards) - checks if opened cards match returns boolean
 - match(openedCards, matchedCards) - moves cards form openedCards to matchedCards and adds to them   class matched
 - moveCount() - increases moves counter on page and updates star rating
-- showModal() - shows the game win modal 
+- showModal() - shows the game win modal
+
+## Dependencies
+This project uses:
+- Font Awesome icons linked form :
+https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+- Coda font family linked form : https://fonts.googleapis.com/css?family=Coda
 
 ## Contributing
 
